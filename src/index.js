@@ -3,16 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import CondicionAtmosferica from './CondicionAtmosferica';
-import NavbarDash from './Navbar';
+
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-    {/* <CondicionAtmosferica/> */}
-    <NavbarDash/>
+     
+     
+     <App/>
+    
   </React.StrictMode>
 );
 

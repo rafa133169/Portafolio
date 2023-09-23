@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Table from "react-bootstrap/Table";
+import Header from "./Componentes/Header";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CondicionAtmosferica() {
+
   const url = "https://api.datos.gob.mx/v1/condiciones-atmosfericas";
   const estadosMx = [
     {"id": 1, "name": "Aguascalientes"},
@@ -51,6 +55,10 @@ function CondicionAtmosferica() {
 
   return (
     <>
+        <Header></Header>
+        <br></br><br></br>
+        <br></br><br></br>
+        <div className="container mx-20 w-50  p-20">
       <select
         onChange={(e) => setEstadoActual(e.target.value)}
         
@@ -63,9 +71,9 @@ function CondicionAtmosferica() {
         ))}
       </select>
       {estadoActual}
-
+    
       <h1>Estado del Tiempo</h1>
-      {datos.map((ciudad, index) => {
+      {/* {datos.map((ciudad, index) => {
         return (
           <div>
             <p>
@@ -73,7 +81,38 @@ function CondicionAtmosferica() {
             </p>
           </div>
         );
-      })}
+      })} */}
+     
+        <div class="offset-2 col-11 mb-5">
+                
+       <div class="card-body">
+         <div class="table-responsive">
+      <Table striped bordered hover>
+              <thead>
+                <tr>
+                  
+                  <th>Ciudad</th>
+                  <th>Clima</th>
+                
+                </tr>
+              </thead>
+              <tbody>
+                {datos.map((ciudad,index) => (
+                  <tr key={datos.id}>
+                   
+                 
+                    <td>{ciudad.name}</td>
+                    <td>{ciudad.skydescriptionlong}</td>
+                   
+                    
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+            </div>
+            </div>
+            </div>
+            </div>
     </>
   );
 }
